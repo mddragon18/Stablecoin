@@ -1,66 +1,15 @@
-## Foundry
+# Stablecoin
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+### Welcome to the pinacle of crypto world , the Defi space.
 
-Foundry consists of:
+## Structure
+1. (Relative stability) Anchored to $1.00 ---> chainlink pricefeed
+    1. Chainlink pricefeed
+    2. Set a function to exchange ETH & BTC ---> $$$
+2. (Stability method) : Algorithmic 
+3. Collateral : Exogenous (Crypto: wETH,wBTC)
 
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
 
-## Documentation
+DSCEngine - 0xA846F61621838b0047DbA9608996Cb0E3A3969c0
 
-https://book.getfoundry.sh/
-
-## Usage
-
-### Build
-
-```shell
-$ forge build
-```
-
-### Test
-
-```shell
-$ forge test
-```
-
-### Format
-
-```shell
-$ forge fmt
-```
-
-### Gas Snapshots
-
-```shell
-$ forge snapshot
-```
-
-### Anvil
-
-```shell
-$ anvil
-```
-
-### Deploy
-
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
+This project was coded up as I go through on my Web3 journey to become a security researcher, this code though is not very security oriented but it has taught me a lot about the Defi space and most importantly how the Stablecoins actually work.
