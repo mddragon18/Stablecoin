@@ -8,20 +8,19 @@ import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
 /**
  * @title   Decentralised Stable Coin
  * @author  mddragon18
- * @dev     
+ * @dev
  * @notice  .
  * collateral : Exo (wETH, wBTC)
  * Minting : Algorithmic
  * Relative stability: pegged to USD
- * 
+ *
  * This contract is meant to governed by a DSCEngine. This is just a ERC20 implementation.
  */
-
 contract DecentralisedStableCoin is ERC20Burnable, Ownable {
-
     error DecentralisedStableCoin__MustBeMoreThanZero();
     error DecentralisedStableCoin__BurnAmountExceedsBalance(uint256 balance, uint256 amount);
     error DecentralisedStableCoin__CannotMintToZeroAddress();
+
     constructor() ERC20("Decentralised Stable Coin", "DSC") Ownable(msg.sender) {}
 
     function burn(uint256 _amount) public override onlyOwner {
@@ -31,11 +30,10 @@ contract DecentralisedStableCoin is ERC20Burnable, Ownable {
         super.burn(_amount);
     }
 
-    function mint (address _to, uint256 _amount) external onlyOwner returns (bool) {
+    function mint(address _to, uint256 _amount) external onlyOwner returns (bool) {
         if (_to == address(0)) revert DecentralisedStableCoin__CannotMintToZeroAddress();
         if (_amount <= 0) revert DecentralisedStableCoin__MustBeMoreThanZero();
-        _mint(_to,_amount);
+        _mint(_to, _amount);
         return true;
-
     }
 }

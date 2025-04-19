@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: MIT 
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
 import {Script} from "lib/forge-std/src/Script.sol";
@@ -12,16 +12,17 @@ contract DeployDSC is Script {
     address[] public tokenAddresses;
     address[] public priceFeedAddresses;
 
-    function run() external returns(DecentralisedStableCoin,DSCEngine,HelperConfig) {
+    function run() external returns (DecentralisedStableCoin, DSCEngine, HelperConfig) {
         HelperConfig helperConfig = new HelperConfig();
-        (address wethUsdPriceFeed,address wbtcUsdPriceFeed,address weth,address wbtc,) = helperConfig.activeNetworkConfig();
+        (address wethUsdPriceFeed, address wbtcUsdPriceFeed, address weth, address wbtc,) =
+            helperConfig.activeNetworkConfig();
         vm.startBroadcast();
         decentralisedStableCoin = new DecentralisedStableCoin();
-        tokenAddresses = [weth,wbtc];
-        priceFeedAddresses = [wethUsdPriceFeed,wbtcUsdPriceFeed];
-        dscEngine = new DSCEngine(tokenAddresses,priceFeedAddresses,address(decentralisedStableCoin));
+        tokenAddresses = [weth, wbtc];
+        priceFeedAddresses = [wethUsdPriceFeed, wbtcUsdPriceFeed];
+        dscEngine = new DSCEngine(tokenAddresses, priceFeedAddresses, address(decentralisedStableCoin));
         decentralisedStableCoin.transferOwnership(address(dscEngine));
         vm.stopBroadcast();
-        return (decentralisedStableCoin,dscEngine,helperConfig);
+        return (decentralisedStableCoin, dscEngine, helperConfig);
     }
 }
